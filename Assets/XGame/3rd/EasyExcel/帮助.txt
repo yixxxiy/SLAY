@@ -1,0 +1,46 @@
+﻿—————EasyExcel—————
+EasyExcel用来导入Excel数据到Unity中，实现加载数据、查询数据。
+它为excel的每个sheet生成C#代码和资源文件（ScriptableObject）
+查询数据时所用的Key类型可以是int或者string，并且自由指定某列作为Key。
+
+第三方库:
+  EPPlus - A .NET library that reads and writes Excel files using the Office Open XML format (xlsx). https://github.com/JanKallman/EPPlus.
+EPPlus仅用于导入Excel文件，不用于运行时，因此运行时代码不依赖任何第三方。
+
+技术支持:
+  QQ1534921818
+  邮箱1534921818@qq.com
+
+—————特色—————
+  • 一键导入，自动生成代码和资源 
+  • 支持Unity 5 - Unity 2018 
+  • 跨平台，因为运行时用到的数据和代码都是Unity原生类型
+  • 以Sheet页为单位生成C#数据类和数据asset
+  • 支持一个excel文件包含多个数据页
+  • 使用Int或String作为Key(ID)查找 
+  • 可以对每个Sheet自由指定Key(ID)列 
+  • 灵活而简单的设置界面 
+  • 详细的示例
+
+—————设置—————
+  详情请看设置界面，里面有详细中英文提示 Tools->EasyExcel->Settings
+
+—————导入excel文件—————
+  点击菜单Tools->EasyExcel->Import，然后选择excel文件所在的文件夹
+
+—————示例场景—————
+  位于EasyExcel/Example
+  1. 点击Tools/EasyExcel/Import选择例子文件夹EasyExcel/Example/ExcelFiles，然后开始导入过程，会生成.cs和.asset文件。 
+默认生成路径是EasyExcel/Example/AutoGenCode和Resources/EasyExcelGeneratedAsset，可在Tools/EasyExcel/Settings中设置。 
+  2. 打开场景ExampleLoadData，运行即可看到加载已导入数据的信息。 
+ExampleLoadData.cs里演示了如何初始化和查找数据 
+
+—————示例excel文件—————
+  位于EasyExcel/Example。实际项目中，应该把excel文件放在Unity项目文件夹之外。
+  1. SupportedTypesExample.xlsx里的SupportedTypes页演示了支持的数据类型：int float string bool double long 它们的数组类型
+  2. KeyColumnExample.xlsx里的KeyColumn页演示了如何指定某列作为Key，如指定Name列则列名写为Name:key 
+  3. MultiSheetsExample.xlsx里演示了在一个xlsx里包含多个Sheet页 
+  4. EmptyColumnExample.xlsx里演示了空列、空行，可用于写注释 
+  5. EmptySheetExample.xlsx里演示了空Sheet，可用于写注释
+
+

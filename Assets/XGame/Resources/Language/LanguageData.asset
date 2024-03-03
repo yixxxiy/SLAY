@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc87000a249e2c34ab5f4bb285a2919a, type: 3}
+  m_Name: LanguageData
+  m_EditorClassIdentifier: 
+  language:
+  - languageTypeName: English
+    languageTypeEnum: 0
+    allValue: []
+  - languageTypeName: Japanese
+    languageTypeEnum: 1
+    allValue: []
+  - languageTypeName: Korean
+    languageTypeEnum: 2
+    allValue: []
+  - languageTypeName: Hindi
+    languageTypeEnum: 3
+    allValue: []
+  - languageTypeName: Russian
+    languageTypeEnum: 4
+    allValue: []
+  - languageTypeName: Portuguese
+    languageTypeEnum: 5
+    allValue: []
+  - languageTypeName: German
+    languageTypeEnum: 6
+    allValue: []
+  - languageTypeName: French
+    languageTypeEnum: 7
+    allValue: []
+  - languageTypeName: ChineseTraditional
+    languageTypeEnum: 8
+    allValue: []
+  - languageTypeName: Indonesian
+    languageTypeEnum: 9
+    allValue: []
+  - languageTypeName: Spanish
+    languageTypeEnum: 10
+    allValue: []
+  - languageTypeName: Pilipinas
+    languageTypeEnum: 11
+    allValue: []
+  - languageTypeName: Thai
+    languageTypeEnum: 12
+    allValue: []
+  - languageTypeName: Laothian
+    languageTypeEnum: 13
+    allValue: []
+  - languageTypeName: Vietnamese
+    languageTypeEnum: 14
+    allValue: []
