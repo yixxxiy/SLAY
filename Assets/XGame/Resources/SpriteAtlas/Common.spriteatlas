@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Common
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 0
+      maxTextureSize: 0
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: be031c76880ec164fab4e0d1ce5d4a49, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 26e002606b1bc2a4e98388a6d19b1ba7, type: 3}
+  - {fileID: 21300000, guid: 7652ecb18fc944a4bae2cf4f8cbf5e6e, type: 3}
+  - {fileID: 21300000, guid: c190e0d2af4b6a543ad806066253ee5b, type: 3}
+  - {fileID: 21300000, guid: ecc80bf5be791ce45b5a1fd7d35c858d, type: 3}
+  - {fileID: 21300000, guid: 56528a560b292bb48ae22baa9c1c8e72, type: 3}
+  - {fileID: 21300000, guid: 124bb717f8cec084885915474091b669, type: 3}
+  - {fileID: 21300000, guid: 95758398d9dbd9049a8c4473b9551bbf, type: 3}
+  - {fileID: 21300000, guid: ba856dabacb1b924b95044cac9b93b45, type: 3}
+  - {fileID: 21300000, guid: 643216afd5bfabc40aac819211f6496a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - fly_bomb3
+  - fly_bomb5
+  - fly_bomb1
+  - fly_bomb7
+  - fly_bomb2
+  - fly_bomb4
+  - fly_bomb8
+  - fly_bomb6
+  - fly_bomb9
+  m_Tag: Common
+  m_IsVariant: 0
