@@ -31,6 +31,7 @@ SpriteAtlas:
       m_CrunchedCompression: 0
       m_AllowsAlphaSplitting: 0
       m_Overridden: 1
+      m_IgnorePlatformSupport: 0
       m_AndroidETC2FallbackOverride: 0
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
@@ -40,90 +41,17 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: 102900000, guid: 4c84d42cbd9a8fe4eb7ece5d29fa5557, type: 3}
+    packables: []
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys: []
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 1f7c7420a6038c346b4af4d7d4417672, type: 3}
-  - {fileID: 21300000, guid: 549524f1df50c3a40a7ea0130dbf4250, type: 3}
-  - {fileID: 21300000, guid: 4d33963237e88a044ab4c8586b576a23, type: 3}
-  - {fileID: 21300000, guid: 08a45fa28497f4e4d9975ab5f92736a7, type: 3}
-  - {fileID: 21300000, guid: c099a4c27d6a4b34d833978b6c00d059, type: 3}
-  - {fileID: 21300000, guid: a0423033535adad4885a73286118d03c, type: 3}
-  - {fileID: 21300000, guid: 1bdaba73df875ce448514fd7f8ce466f, type: 3}
-  - {fileID: 21300000, guid: 6cacaa040511dbe458e7ad2bd683e1aa, type: 3}
-  - {fileID: 21300000, guid: 090b26547b560eb4a8e7ec4692355fec, type: 3}
-  - {fileID: 21300000, guid: 53ea56b46d73d944197c1a88d84f3900, type: 3}
-  - {fileID: 21300000, guid: e5781dc49902e2e4abb4550d208969bc, type: 3}
-  - {fileID: 21300000, guid: 0ef72ec4dfe93b046bd1d6ca4d5b0e2b, type: 3}
-  - {fileID: 21300000, guid: 5d1e6615465cd2443bc4a6c9053f8d84, type: 3}
-  - {fileID: 21300000, guid: 0b32c295d10fea34d951b9798b644d1c, type: 3}
-  - {fileID: 21300000, guid: 740612f575daee14fb8f63c1d38d927a, type: 3}
-  - {fileID: 21300000, guid: a1059a176ad808e4b948ac0424bde598, type: 3}
-  - {fileID: 21300000, guid: 52fabb87b01eb794f9eee3cba7a17254, type: 3}
-  - {fileID: 21300000, guid: 5d1d44a7c56d38b42a2d13eff18ee2ff, type: 3}
-  - {fileID: 21300000, guid: da2c3a780ba786f4785e51d3338a345b, type: 3}
-  - {fileID: 21300000, guid: f7760b78ab15b6e44a08980ef469656c, type: 3}
-  - {fileID: 21300000, guid: beac835abeef04843b5904ea71b9c727, type: 3}
-  - {fileID: 21300000, guid: 6bceb9caecefc6e49866ec7e81d73bc0, type: 3}
-  - {fileID: 21300000, guid: bfc212fa80bbf6c49bcf9ce7fd309828, type: 3}
-  - {fileID: 21300000, guid: 50f13e4bd4376d840b8fa06e9af29dc5, type: 3}
-  - {fileID: 21300000, guid: 1d7f5f6bb8fad1445b5c6162445c22f3, type: 3}
-  - {fileID: 21300000, guid: 7c75368b9e5bb8949bb19a85d3b6ea57, type: 3}
-  - {fileID: 21300000, guid: d51c934c5f5a4c64d93e0b257ce5cc7c, type: 3}
-  - {fileID: 21300000, guid: b1724a5c6c8f7534b91473fb4143f548, type: 3}
-  - {fileID: 21300000, guid: 69e2d02d5a7140041ac6d012a8b00a92, type: 3}
-  - {fileID: 21300000, guid: f8a1989d84a72cd4bbc57634393ef562, type: 3}
-  - {fileID: 21300000, guid: e05c02cde33afd3489ce9e8ae2571f55, type: 3}
-  - {fileID: 21300000, guid: 78bd150e82fab504c9433dc4eb986123, type: 3}
-  - {fileID: 21300000, guid: 94999abebec3d76418a88b766c0068d4, type: 3}
-  - {fileID: 21300000, guid: 2b27affe23c9bd14883b2d892dfe31e5, type: 3}
-  - {fileID: 21300000, guid: 09c4764f226e1584ca47a9ff24e1aa73, type: 3}
-  - {fileID: 21300000, guid: b2c5f94f7dbf9034bbeef7b739967dfe, type: 3}
-  - {fileID: 21300000, guid: f9b3e59f3a83e0f449210659cf7f36a3, type: 3}
-  - {fileID: 21300000, guid: a148bd9f3f61a1f4b88dd36031cb670d, type: 3}
-  - {fileID: 21300000, guid: 47a9d4bf23393b24db00db4ee371190e, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - ScoreUpIcon
-  - top_item_bg
-  - OfflineUp
-  - OfflineReward
-  - btn_play
-  - Setingbg_1
-  - MID_BG_RIGHT
-  - OfflineRewardTime
-  - cash
-  - UpMask
-  - weapon_on
-  - BoxLight
-  - level_star_off
-  - Setingbg
-  - Down_bg
-  - Shoot_on
-  - TopBg
-  - weapon_off
-  - Rank_off
-  - Bullet_Count
-  - UpArrow
-  - UpShadow
-  - RankBg
-  - btn_on
-  - GoldUpIcon
-  - level_title
-  - ScoreUp
-  - adicon_5
-  - TimeIcon
-  - level_star_on
-  - YoumiIcon
-  - arrow_weapon
-  - gold
-  - GameSet
-  - Setting
-  - GoldUp
-  - Shoot_off
-  - OfflineUpIcon
-  - Rank_on
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
+  m_RenderDataMap: {}
   m_Tag: Menu
   m_IsVariant: 0
