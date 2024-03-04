@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -7,8 +9,8 @@ public class PlayerScript : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
     public Storage inventory;
-
-
+    public Joystick joystick;
+    public float speed = 3.0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,27 +21,19 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 检测是否发生了点击事件
-        {
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 获取点击位置的世界坐标
-            targetPosition.z = 0; // 保证z轴为0（2D场景）
-            isMoving = true; // 开始移动
-        }
-
-        Moving();
+        HandleMoving();
     }
 
-    private void Moving()
+    private void HandleMoving()
     {
+        var x = joystick.Horizontal;
+        var y = joystick.Vertical;
+        isMoving = new Vector2(x, y).magnitude >= 0.1f;
+
         if (isMoving)
         {
-            float step = 3f * Time.deltaTime; // 移动速度
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step); // 移动至目标位置
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.001f) // 到达目标位置
-            {
-                isMoving = false; // 停止移动
-            }
+            float step = speed * Time.deltaTime;
+            transform.position += step * new Vector3(x, y, 0);
         }
     }
 
