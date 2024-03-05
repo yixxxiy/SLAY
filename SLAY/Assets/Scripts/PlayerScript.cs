@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        inventory = new Storage();
+        inventory = new Storage(40);
         health = maxHealth;
         hunger = maxHunger;
     }
@@ -72,9 +72,11 @@ public class PlayerScript : MonoBehaviour
         {
             case "掉落物":
                 DropItemScript dropItemScript = collision.gameObject.GetComponent<DropItemScript>();
-                inventory.AddItem(dropItemScript.item);
-
-                collision.SendMessage("Pick");
+                Item remainItem = inventory.AddItem(dropItemScript.item);
+                if (remainItem == null)
+                {
+                    collision.SendMessage("Pick");
+                }
                 break;
             default:
                 break;
