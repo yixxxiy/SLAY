@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7774369285470655728}
   - component: {fileID: 1586447315951169348}
   m_Layer: 0
-  m_Name: character light
+  m_Name: CharacterLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2922943955870355569}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4793863, y: 0.87, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0.87, z: 0}
   m_LocalScale: {x: 5.3340216, y: 5.3340216, z: 5.3340216}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,9 +96,10 @@ GameObject:
   - component: {fileID: 4369894897994506013}
   - component: {fileID: 1824412452885495830}
   - component: {fileID: 3015059770096381746}
+  - component: {fileID: 1738869696432742161}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +207,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory:
     itemList: []
+  joystick: {fileID: 0}
+  speed: 4
+  health: 0
+  maxHealth: 100
+  hunger: 0
+  maxHunger: 100
+  exp: 0
+  maxExp: 100
 --- !u!61 &1824412452885495830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,10 +244,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.125}
+  m_Offset: {x: -0.09790468, y: 0.9618258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -249,7 +258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.625, y: 2.25}
+  m_Size: {x: 1.8208094, y: 2.3152695}
   m_EdgeRadius: 0
 --- !u!50 &3015059770096381746
 Rigidbody2D:
@@ -278,3 +287,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1738869696432742161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491434913822922761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3561f8fbed8444b4d8b90947b350a931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.5
+  damage: 30
+  coolDown: 2
+  gizmosEnabled: 1
+  offset: {x: 0, y: 0.5, z: 0}

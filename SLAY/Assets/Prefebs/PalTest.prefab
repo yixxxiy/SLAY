@@ -489,6 +489,7 @@ MonoBehaviour:
   state: 0
   speed: 2
   moveWhileIdle: 1
+  menu: {fileID: 0}
 --- !u!61 &8644891166492499792
 BoxCollider2D:
   m_ObjectHideFlags: 0

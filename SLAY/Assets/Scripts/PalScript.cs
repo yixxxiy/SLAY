@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public struct PalType
 {
@@ -172,8 +174,13 @@ public class PalScript : MonoBehaviour
     public PalState state;
     public float speed = 2f;
     public bool moveWhileIdle = true;
+    public GameObject menu;
 
     private Vector3 targetPosition;
+
+    private void Awake()
+    {
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -215,7 +222,6 @@ public class PalScript : MonoBehaviour
             default:
                 break;
         }
-
     }
 
     private void MoveToTarget(Vector3 target)
@@ -232,7 +238,7 @@ public class PalScript : MonoBehaviour
     //帕鲁工作
     public void Work()
     {
-
+        Debug.Log("pal work");
     }
 
     //帕鲁战斗
@@ -251,9 +257,9 @@ public class PalScript : MonoBehaviour
         state = PalState.Fighting;
         pal.Hurt(amount);
         Debug.Log(string.Format("Pal {0} get hurt, damage: {1}, health: {2}", name, amount, pal.health));
-        if (pal.health == 0 )
+        if (pal.health == 0)
         {
-            this.Die();
+            Die();
         }
     }
 
@@ -261,7 +267,17 @@ public class PalScript : MonoBehaviour
     {
         // 当帕鲁死亡执行的操作
         Debug.Log("啊我死了");
-        state= PalState.Dead;
+        state = PalState.Dead;
         Destroy(gameObject);
+    }
+
+    public void Follow()
+    {
+        Debug.Log("pal follow");
+    }
+
+    public void Inspect()
+    {
+        Debug.Log("pal inspected");
     }
 }
