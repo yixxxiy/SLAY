@@ -31,7 +31,7 @@ public static class PalTypes
 {
     public static Dictionary<string, PalType> palTypes;
 
-    public static void Init()
+    static PalTypes()
     {
         palTypes = new Dictionary<string, PalType>(); ;
         palTypes.Add("普通帕鲁", new PalType("普通帕鲁", "", 100, 100, 10));
@@ -146,6 +146,15 @@ public class Pal
             health = type.maxHp;
         }
     }
+
+    public void Hurt(int amount)
+    {
+        health -= amount;
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
 }
 
 public enum PalState
@@ -161,6 +170,8 @@ public class PalScript : MonoBehaviour
 {
     public Pal pal;
     public PalState state;
+    public float speed = 2f;
+    public bool moveWhileIdle = true;
 
     private Vector3 targetPosition;
 
@@ -168,17 +179,28 @@ public class PalScript : MonoBehaviour
     void Start()
     {
         state = PalState.Idle;
+
+        pal = new Pal();
+        pal.typeName = "普通帕鲁";
+        pal.health = pal.type.maxHp;
+        pal.hunger = 0;
+        pal.san = Pal.MAX_SAN;
+        pal.level = 1;
+        pal.exp = 0;
+        pal.isCaptured = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         switch (state)
         {
             case PalState.Idle:
-                targetPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
-                state = PalState.Moving;
+                if (moveWhileIdle)
+                {
+                    targetPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+                    state = PalState.Moving;
+                }
                 break;
             case PalState.Working:
                 // 处理Working状态下的逻辑
@@ -198,7 +220,7 @@ public class PalScript : MonoBehaviour
 
     private void MoveToTarget(Vector3 target)
     {
-        float step = 2f * Time.deltaTime; // 移动速度
+        float step = speed * Time.deltaTime; // 移动速度
         transform.position = Vector3.MoveTowards(transform.position, target, step); // 移动至目标位置
 
         if (Vector3.Distance(transform.position, target) < 0.001f) // 到达目标位置
@@ -219,10 +241,27 @@ public class PalScript : MonoBehaviour
 
     }
 
+    public void Hurt(int amount)
+    {
+        if (state == PalState.Dead)
+        {
+            return;
+        }
+
+        state = PalState.Fighting;
+        pal.Hurt(amount);
+        Debug.Log(string.Format("Pal {0} get hurt, damage: {1}, health: {2}", name, amount, pal.health));
+        if (pal.health == 0 )
+        {
+            this.Die();
+        }
+    }
+
     void Die()
     {
         // 当帕鲁死亡执行的操作
         Debug.Log("啊我死了");
-
+        state= PalState.Dead;
+        Destroy(gameObject);
     }
 }
