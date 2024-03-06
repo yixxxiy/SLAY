@@ -30,13 +30,13 @@ public class ExampleUI : MonoBehaviour
     }
     public void ShowLoading()
     {
-        XGame.MainController.ShowUI<UI_Loading>();
+       // MainController.ShowUI<UI_Loading>();
     }
 
 
     public void ShowTips()
     {
-        XGame.MainController.ShowTips("这是一条提示");
+       // MainController.ShowTips("这是一条提示");
     }
     public void ShowEffect()
     {

@@ -15,46 +15,91 @@ MonoBehaviour:
   language:
   - languageTypeName: English
     languageTypeEnum: 0
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: Hello
   - languageTypeName: Japanese
     languageTypeEnum: 1
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Korean
     languageTypeEnum: 2
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Hindi
     languageTypeEnum: 3
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Russian
     languageTypeEnum: 4
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Portuguese
     languageTypeEnum: 5
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: German
     languageTypeEnum: 6
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: French
     languageTypeEnum: 7
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: ChineseTraditional
     languageTypeEnum: 8
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: "\u4F60\u597D"
   - languageTypeName: Indonesian
     languageTypeEnum: 9
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Spanish
     languageTypeEnum: 10
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Pilipinas
     languageTypeEnum: 11
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Thai
     languageTypeEnum: 12
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Laothian
     languageTypeEnum: 13
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 
   - languageTypeName: Vietnamese
     languageTypeEnum: 14
-    allValue: []
+    allValue:
+    - languageEnumName: UI_Tip
+      languageEnum: 0
+      value: 

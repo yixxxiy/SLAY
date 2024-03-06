@@ -4,11 +4,10 @@ using UnityEngine;
 namespace XGame
 {
     [System.Serializable]
-    public class WeaponInfo
+    public class PALU
     {
-        public int Id;
-        public int PieceListIndex;
-        public int CurSkinId;
+        public int PaluId;
+        public int PaluHeath;
         public bool IsGet;
     }
     [System.Serializable]
@@ -23,6 +22,11 @@ namespace XGame
         public int PlayGameTimes;
         public int LoginDay;
         public int Gold;
+
+        public bool ISuODA;
+
+        public List<PALU> PaLuList; 
+      
     }
 
 }
