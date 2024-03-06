@@ -28,24 +28,10 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
-      enableAlphaDilation: 0
-    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: be031c76880ec164fab4e0d1ce5d4a49, type: 3}
     bindAsDefault: 1
-    isAtlasV2: 0
-    cachedData: {fileID: 0}
-    packedSpriteRenderDataKeys:
-    - 26e002606b1bc2a4e98388a6d19b1ba7: 21300000
-    - 7652ecb18fc944a4bae2cf4f8cbf5e6e: 21300000
-    - c190e0d2af4b6a543ad806066253ee5b: 21300000
-    - ecc80bf5be791ce45b5a1fd7d35c858d: 21300000
-    - 56528a560b292bb48ae22baa9c1c8e72: 21300000
-    - 124bb717f8cec084885915474091b669: 21300000
-    - 95758398d9dbd9049a8c4473b9551bbf: 21300000
-    - ba856dabacb1b924b95044cac9b93b45: 21300000
-    - 643216afd5bfabc40aac819211f6496a: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 26e002606b1bc2a4e98388a6d19b1ba7, type: 3}
@@ -67,6 +53,5 @@ SpriteAtlas:
   - fly_bomb8
   - fly_bomb6
   - fly_bomb9
-  m_RenderDataMap: {}
   m_Tag: Common
   m_IsVariant: 0

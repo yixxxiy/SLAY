@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-
+using XGame;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -77,6 +77,27 @@ public class PlayerScript : MonoBehaviour
                 {
                     collision.SendMessage("Pick");
                 }
+
+
+                //
+                //if(!XGame.MainController.NeedGamePause())
+                //{
+
+                //}
+                //AudioManager.Instance.PlayOneShot(AudioModel.Cloect);
+                //AudioManager.Instance.StopAudio(AudioModel.Cloect);
+                //EventCenterManager.Send<SentUpdateGoldText>(new SentUpdateGoldText() { isShowPalu = true });  //发送
+                //XGame.MainController.DataMgr.AddReward(Reward.Gold,50);
+
+
+
+                //XGame.MainController.ShowUI<UI_Menu>(new MenuDate()
+                //{
+                //    PALUID = 1,
+
+                //    dongtaiwuti = this.gameObject,
+                //}) ;
+                //XGame.MainController.HideUI<UI_Menu>();
                 break;
             default:
                 break;
