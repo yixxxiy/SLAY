@@ -249,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126.114655, y: -42.25409}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5410975809241327443
@@ -349,5 +349,5 @@ MonoBehaviour:
   imageComponent: {fileID: 4399436859639386602}
   quantity: {fileID: 9214459283393187636}
   storage:
-    itemList: []
+    slotList: []
   slotIndex: 0

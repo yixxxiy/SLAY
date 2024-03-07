@@ -21,6 +21,6 @@ namespace XGame
         public static string TokenFly = "TokenFly";
 
 
-
+        public static string Cloect = "Cloect";
     }
 }

@@ -31,12 +31,12 @@ namespace XGame
             {
                 Data = LocalDataUtil.GetObject<GameData>(saveKey);
                 //更新最后登录时间
-  
+
             }
         }
-      
 
-    
+
+
 
         /// <summary>
         /// 清零每天数据
@@ -47,8 +47,8 @@ namespace XGame
             Data.LoginDay++;
             EventCenterManager.Send<NewDayEvent>();
         }
-    
-       
+
+
         /// <summary>
         /// 保存数据
         /// </summary>
@@ -70,9 +70,12 @@ namespace XGame
                 RegisterTime = System.DateTime.Now,
                 LastLoginTime = System.DateTime.Now,
                 LastRefreshDataTime = System.DateTime.Now,
-                ADID = string.Empty,             
-                LoginDay = 1,                         
+                ADID = string.Empty,
+                LoginDay = 1,
                 Gold = 0,
+
+
+                ISuODA = false,
             };
         }
 
@@ -83,9 +86,9 @@ namespace XGame
         public int GetNumByType(Reward rewardtype)
         {
             switch (rewardtype)
-            {              
+            {
                 case Reward.Gold:
-                    return Data.Gold;              
+                    return Data.Gold;
                 default:
                     return 0;
             }
@@ -123,14 +126,14 @@ namespace XGame
         public void AddReward(Reward rewardtype, int value, bool updateText = true)
         {
             switch (rewardtype)
-            {              
+            {
                 case Reward.Gold:
-                    Data.Gold += value;                 
+                    Data.Gold += value;
                     if (updateText)
                     {
                         EventCenterManager.Send<UpdateGoldEvent>();
-                    }              
-                    break;           
+                    }
+                    break;
                 default:
                     break;
 

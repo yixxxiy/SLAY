@@ -24,4 +24,11 @@ namespace XGame
     }
 
     public class SetFlyTargetEvent { }
+
+
+    public class SentUpdateGoldText 
+    {
+        public bool isShowPalu;
+        
+    }
 }

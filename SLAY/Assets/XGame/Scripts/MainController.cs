@@ -191,7 +191,7 @@ namespace XGame
         {
 
             Init();
-            ShowUI<UI_Loading>();
+            //ShowUI<UI_Loading>();
         }
 
 
@@ -238,6 +238,9 @@ namespace XGame
             GameDataManager.Instance.LoadData();
             //TipsManager初始化
             TipsManager.Instance.Init();
+
+            //
+
         }
         void InitLanguage()
         {

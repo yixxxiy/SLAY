@@ -15,7 +15,7 @@ namespace XGame
                 return mLayer;
             }
         }
-        //是否只能存在一个(如提现面板)
+        //是否只能存在一个
         public virtual bool IsSingle
         {
             get
