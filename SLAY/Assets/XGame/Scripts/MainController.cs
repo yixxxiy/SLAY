@@ -181,6 +181,7 @@ namespace XGame
         {
             Init();
             ShowUI<UI_Permanent>();
+            HudController.Instance.Init();
         }
 
         void OnDestroy()

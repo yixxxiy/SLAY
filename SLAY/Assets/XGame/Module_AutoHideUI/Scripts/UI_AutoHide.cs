@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 namespace XGame
 {
-    public class UI_Permanent : UIView
+    public class UI_AutoHide : UIView
     {
         public override UILayers Layer
         {
             get
             {
-                return UILayers.BackgroundLayer;
+                return UILayers.TempBgLayer;
             }
         }
+
+        public override bool IsSingle => true;
+
         public override void OnHide()
         {
         }

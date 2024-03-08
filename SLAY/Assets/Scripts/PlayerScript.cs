@@ -66,6 +66,13 @@ public class PlayerScript : MonoSingleton<PlayerScript>
         {
             hunger = 0;
         }
+        EventCenterManager.Send<ShowHudEvent>();
+        EventCenterManager.Send(new HungerUpdatedEvent
+        {
+            min = 0,
+            max = maxHunger,
+            value = hunger
+        });
     }
 
     private void HandleMoving()

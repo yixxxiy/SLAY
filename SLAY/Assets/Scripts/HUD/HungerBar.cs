@@ -2,63 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using XGame;
 
 public class HungerBar : MonoBehaviour
 {
-    public float showDuration = 3.0f;
-
-    PlayerScript playerScript;
     Slider slider;
-    CanvasGroup canvasGroup;
-    bool show = true;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerScript>();
+        this.RegisterEvent<HungerUpdatedEvent>(HungerUpdated);
 
         slider = GetComponent<Slider>();
         slider.minValue = 0;
-
-        canvasGroup = GetComponent<CanvasGroup>();
-
-        Show();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        if (slider.maxValue != playerScript.maxHunger)
-        {
-            Show();
-            slider.maxValue = playerScript.maxHunger;
-        }
-
-        if (slider.value != playerScript.hunger)
-        {
-            Show();
-            slider.value = playerScript.hunger;
-        }
-
-        if (show && canvasGroup.alpha != 1)
-        {
-            canvasGroup.alpha = 1;
-        }
-        if (!show &&  canvasGroup.alpha != 0)
-        {
-            canvasGroup.alpha = 0;
-        }
+        this.UnRegisterEvent<HungerUpdatedEvent>();
     }
 
-    void Show()
+    void HungerUpdated(HungerUpdatedEvent e)
     {
-        show = true;
-        CancelInvoke("Hide");
-        Invoke("Hide", showDuration);
-    }
+        if (slider.maxValue != e.max)
+        {
+            slider.maxValue = e.max;
+        }
 
-    void Hide()
-    {
-        show = false;
+        if (slider.value != e.value)
+        {
+            slider.value = e.value;
+        }
     }
 }

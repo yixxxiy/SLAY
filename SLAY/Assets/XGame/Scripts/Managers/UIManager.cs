@@ -25,6 +25,8 @@ namespace XGame
 
             RectTransform Root = new GameObject("BackgroundLayerParent", typeof(RectTransform)).transform as RectTransform;
             mLayerParents[UILayers.BackgroundLayer] = Root.transform;
+            Root = new GameObject("TempBgLayerParent", typeof(RectTransform)).transform as RectTransform;
+            mLayerParents[UILayers.TempBgLayer] = Root.transform;
             Root = new GameObject("DefaultLayerParent", typeof(RectTransform)).transform as RectTransform;
             mLayerParents[UILayers.DefaultLayer] = Root.transform;
             Root = new GameObject("NormalLayerParent", typeof(RectTransform)).transform as RectTransform;
@@ -195,8 +197,6 @@ namespace XGame
                         LogUtil.Err("加载失败" + key);
                         return null;
                     }
-
-
                 }
                 mUiViewDic.Add(key, uiView);
                 uiView.gameObject.SetActive(false);
@@ -310,6 +310,7 @@ namespace XGame
             }
 
         }
+
         /// <summary>
         /// 隐藏面板
         /// </summary>
@@ -383,6 +384,7 @@ namespace XGame
             }
             return uiView;
         }
+
         public void Clear()
         {
             mUiViewDic.Clear();
@@ -391,6 +393,7 @@ namespace XGame
             mLayerParents.Clear();
             mDelayUIs.Clear();
         }
+
         /// <summary>
         /// 该层级是否有正在显示的ui
         /// </summary>
