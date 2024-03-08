@@ -28,9 +28,9 @@ public class MainController : MonoBehaviour
 
     public void AddDrop()
     {
+        Debug.Log("AddDrop");
         GameObject newDrop = Instantiate(dropItemPrefab, new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0), Quaternion.identity);
         DropItemScript dropItem = newDrop.GetComponent<DropItemScript>();
         dropItem.SetItem(new Item("木头", "", 1));
     }
-
 }

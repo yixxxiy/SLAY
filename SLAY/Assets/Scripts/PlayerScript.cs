@@ -5,12 +5,11 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using XGame;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : MonoSingleton<PlayerScript>
 {
     const float HUNGER_DECREASE_INTERVAL = 5f;
 
     public Storage inventory;
-    public Joystick joystick;
     public float speed = 3.0f;
     public int health;
     public int maxHealth = 100;
@@ -22,13 +21,29 @@ public class PlayerScript : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
     private float hungerTimer = 0f;
+    MeleeAttack meleeAttack;
 
-    // Start is called before the first frame update
     void Awake()
     {
         inventory = new Storage(40);
         health = maxHealth;
         hunger = maxHunger;
+
+        this.RegisterEvent<PlayerInteractEvent>(PlayerInteract);
+        meleeAttack = GetComponent<MeleeAttack>();
+    }
+
+    void PlayerInteract(PlayerInteractEvent e)
+    {
+        Debug.Log("got PlayerInteractEvent");
+        switch (e.type)
+        {
+            case InteractType.Attack:
+                meleeAttack.Use();
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -55,10 +70,12 @@ public class PlayerScript : MonoBehaviour
 
     private void HandleMoving()
     {
+        var joystick = JoystickSingleton.instance;
+        if (joystick == null) return;
+
         var x = joystick.Horizontal;
         var y = joystick.Vertical;
         isMoving = new Vector2(x, y).magnitude >= 0.1f;
-
         if (isMoving)
         {
             float step = speed * Time.deltaTime;
@@ -102,5 +119,10 @@ public class PlayerScript : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        this.UnRegisterEvent<PlayerInteractEvent>();
     }
 }

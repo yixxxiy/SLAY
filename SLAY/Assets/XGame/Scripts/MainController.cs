@@ -4,15 +4,14 @@ using UnityEngine;
 using EasyExcel;
 using MoreMountains.NiceVibrations;
 using UnityEngine.SceneManagement;
+
 namespace XGame
 {
-
     /// <summary>
     /// 中心控制类
     /// </summary>
     public class MainController : MonoBehaviour
     {
-
         public static bool OpenHaptic
         {
             get
@@ -66,8 +65,6 @@ namespace XGame
                 return UIManager.Instance;
             }
         }
-
-
 
         public static bool NeedGamePause()
         {
@@ -131,7 +128,7 @@ namespace XGame
 
         public static void PlayBtnOn()
         {
-            PlaySound(AudioModel.Button);
+            //PlaySound(AudioModel.Button);
         }
 
         public static void Haptic()
@@ -173,38 +170,27 @@ namespace XGame
 
         #endregion
 
-
-
-
-
-
         void Awake()
         {
-
             DontDestroyOnLoad(gameObject);
             //设置帧率
             Application.targetFrameRate = 60;
-
-
         }
+
         void Start()
         {
-
             Init();
-            //ShowUI<UI_Loading>();
+            ShowUI<UI_Permanent>();
         }
-
-
 
         void OnDestroy()
         {
 
         }
+
         void Update()
         {
-
-
-            if (Camera.main != null && UIManager.Instance.UiCanvas != null && Input.GetMouseButtonDown(0))
+           /* if (Camera.main != null && UIManager.Instance.UiCanvas != null && Input.GetMouseButtonDown(0))
             {
 
                 var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -216,10 +202,10 @@ namespace XGame
                 DataMgr.RefreshDayData();
             }
             //驱动计时器
-            TimerManager.Instance.Update(Time.deltaTime);
+            TimerManager.Instance.Update(Time.deltaTime);*/
         }
-        #region 初始化各模块
 
+        #region 初始化各模块
 
         //初始化各个模块
         void Init()
@@ -229,7 +215,6 @@ namespace XGame
             //多语言初始化
             InitLanguage();
 
-
             //UI初始化
             UIManager.Instance.Init(transform);
             //音頻初始化
@@ -238,10 +223,8 @@ namespace XGame
             GameDataManager.Instance.LoadData();
             //TipsManager初始化
             TipsManager.Instance.Init();
-
-            //
-
         }
+
         void InitLanguage()
         {
             LanguageTypeEnum curlanguageType = LanguageTypeEnum.English;
@@ -327,7 +310,9 @@ namespace XGame
             //保存游戏数据
             GameDataManager.Instance.Save();
         }
+
         System.DateTime LeaveTime = System.DateTime.Now;
+
         private void OnApplicationFocus(bool focus)
         {
             if (!focus)
@@ -343,13 +328,10 @@ namespace XGame
         {
             SaveData();
         }
+
         private void OnApplicationPause(bool pause)
         {
             if (pause) SaveData();
         }
-
-
-
-
     }
 }

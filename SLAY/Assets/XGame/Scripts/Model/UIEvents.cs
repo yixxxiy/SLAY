@@ -31,4 +31,14 @@ namespace XGame
         public bool isShowPalu;
         
     }
+
+    public class UpdateInteractEvent
+    {
+        public InteractType type;
+    }
+    
+    public class PlayerInteractEvent
+    {
+        public InteractType type;
+    }
 }
