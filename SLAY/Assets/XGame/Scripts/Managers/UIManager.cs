@@ -25,6 +25,8 @@ namespace XGame
 
             RectTransform Root = new GameObject("BackgroundLayerParent", typeof(RectTransform)).transform as RectTransform;
             mLayerParents[UILayers.BackgroundLayer] = Root.transform;
+            Root = new GameObject("TempBgLayerParent", typeof(RectTransform)).transform as RectTransform;
+            mLayerParents[UILayers.TempBgLayer] = Root.transform;
             Root = new GameObject("DefaultLayerParent", typeof(RectTransform)).transform as RectTransform;
             mLayerParents[UILayers.DefaultLayer] = Root.transform;
             Root = new GameObject("NormalLayerParent", typeof(RectTransform)).transform as RectTransform;
@@ -55,13 +57,9 @@ namespace XGame
 
             //初始化飞金币动画管理器
             FlyRewardManager.Instance.Init(mLayerParents[UILayers.RewardLayer], mLayerParents[UILayers.NormalLayer]);
-
-            
-
         }
         //所有面板的父物体
         private Dictionary<UILayers, Transform> mLayerParents = new Dictionary<UILayers, Transform>();
-
 
         private Dictionary<UILayers, Stack<UIView>> mCurLayers = new Dictionary<UILayers, Stack<UIView>>();
 
@@ -69,8 +67,6 @@ namespace XGame
         private Dictionary<string, UIView> mPreUiViewDic = new Dictionary<string, UIView>();
         //等待展示的窗口（只用在Pop中）
         private Queue<DelayUI> mDelayUIs = new Queue<DelayUI>();
-
-        
 
         System.Type GetTypeByName(string typeName)
         {
@@ -151,7 +147,7 @@ namespace XGame
             if (uiView == null) uiView = UIPrefab.AddComponent(type) as UIView;
             uiView.OnInit();
             uiView.SetLanguage();
-            UILayers uiLayer = uiView.Layer;       
+            UILayers uiLayer = uiView.Layer;
             uiType = mLayerParents[uiLayer];
             if (uiType == null)
             {
@@ -182,7 +178,7 @@ namespace XGame
             return ShowUIView(typeof(T), msg, showCallBack, delay) as T;
         }
         public UIView ShowUIView(System.Type type, object msg = null, System.Action showCallBack = null, bool delay = true)
-        {         
+        {
             UIView uiView = null;
             var key = type.Name;
             if (!mUiViewDic.TryGetValue(key, out uiView))
@@ -201,8 +197,6 @@ namespace XGame
                         LogUtil.Err("加载失败" + key);
                         return null;
                     }
-
-
                 }
                 mUiViewDic.Add(key, uiView);
                 uiView.gameObject.SetActive(false);
@@ -223,7 +217,7 @@ namespace XGame
                 }
             }
 
-      
+
 
             if (delay && uiView.Layer == UILayers.PopupLayer)
             {
@@ -277,7 +271,7 @@ namespace XGame
         }
         public void HideUIViewImmediate(UIView uiView, bool destroy = false)
         {
-            
+
             if (mCurLayers[uiView.Layer].Count > 0)
             {
                 mCurLayers[uiView.Layer].Pop();
@@ -316,6 +310,7 @@ namespace XGame
             }
 
         }
+
         /// <summary>
         /// 隐藏面板
         /// </summary>
@@ -389,6 +384,7 @@ namespace XGame
             }
             return uiView;
         }
+
         public void Clear()
         {
             mUiViewDic.Clear();
@@ -397,6 +393,7 @@ namespace XGame
             mLayerParents.Clear();
             mDelayUIs.Clear();
         }
+
         /// <summary>
         /// 该层级是否有正在显示的ui
         /// </summary>

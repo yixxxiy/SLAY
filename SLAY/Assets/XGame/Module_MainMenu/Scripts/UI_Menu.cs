@@ -8,8 +8,6 @@ using System;
 
 namespace XGame
 {
-
-
     public class MenuDate
     {
         public int OpenBy = 0;
@@ -41,7 +39,6 @@ namespace XGame
         /// </summary>
         void InitCom()  // Awake  Start
         {
-
             mCloseBtn = transform.Find<Button>("Button");
         }
 

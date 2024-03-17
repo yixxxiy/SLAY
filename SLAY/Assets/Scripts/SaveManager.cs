@@ -14,15 +14,15 @@ public static class SaveManager
 
     public static void Test()
     {
-        Debug.Log(Application.persistentDataPath);
+        Debug.Log("persistent data path: "+Application.persistentDataPath);
 
         if (Directory.Exists(savePath))
         {
-            Debug.Log("存在");
+            Debug.Log(savePath + "存在");
         }
         else
         {
-            Debug.Log("不存在");
+            Debug.Log(savePath + "不存在");
             Directory.CreateDirectory(savePath);
         }
 
