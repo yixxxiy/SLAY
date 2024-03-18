@@ -100,6 +100,7 @@ namespace XGame
             }
             return type;
         }
+
         void PreLoadUIPanel(System.Type type)
         {
             if (type == null) return;
