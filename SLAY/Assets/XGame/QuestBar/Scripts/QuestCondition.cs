@@ -1,4 +1,6 @@
-﻿namespace XGame
+﻿using System;
+
+namespace XGame
 {
     public enum QuestConditionTypeEnum
     {
@@ -6,22 +8,37 @@
          * 捕获帕鲁
          */
         CAPTURE = 0,
-        
+
         /**
-         * 获得物品
+         * 获取物品
          */
         OBTAIN = 1,
-        
-        /**
-         * 制造物品
-         */
-        MANUFACTURE = 2,
-        
+     
         /**
          * 拥有物品
          */
-        POSSESS = 3
+        POSSESS = 2,
+        
+        /**
+         * 击杀
+         */
+        KILLED = 3
     }
+
+    public enum QuestConditionObjectEnum
+    {
+        /**
+         * 木材
+         */
+        WOOD = 1,
+
+        /**
+         * 苹果
+         */
+        APPLE = 0
+    }
+    [Serializable]
+
     public class QuestCondition
     {
         /**
@@ -42,7 +59,7 @@
         /**
          * 达成条件物品ID
          */
-        public int conditionObjectId;
+        public int conditionObject;
 
         /**
          * 是否已达成

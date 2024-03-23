@@ -2,32 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 namespace XGame
 {
-    
+    /**
+     * 任务更新事件
+     */
+    public class QuestUpdateEvent
+    {
+        public Quest quest;
+
+        public QuestUpdateEvent(Quest quest)
+        {
+            this.quest = quest;
+        }
+    }
 
     public class UI_QuestBar : UIView
     {
-        [SerializeField]
-        private TextAsset missionList;
+        [SerializeField] private GameObject UI_QuestItemPrefab;
 
-        [SerializeField]
-        private GameObject UI_QuestItemPrefab;
+        private Button exitButton;
+
+        private Button testButton;
 
         private Dictionary<int, UI_QuestItem> questItemDict;
 
         private Transform contentTransform;
+
         public override UILayers Layer
         {
-            get
-            {
-                return UILayers.NormalLayer;
-            }
+            get { return UILayers.NormalLayer; }
         }
 
         public override bool IsSingle => true;
+
         public override void OnHide()
         {
             foreach (UI_QuestItem questItem in questItemDict.Values)
@@ -35,24 +46,30 @@ namespace XGame
                 questItem.OnHide();
                 questItem.gameObject.SetActive(false);
             }
-            
+
+            this.UnRegisterEvent<QuestUpdateEvent>();
         }
 
         public override void OnInit()
         {
+            exitButton = this.transform.Find("exit").GetComponent<Button>();
+            exitButton.onClick.AddListener(onClickExit);
+            testButton = this.transform.Find("updateQuestForTest").GetComponent<Button>();
+            testButton.onClick.AddListener(onClickTest);
             contentTransform = this.transform.Find("ScrollView").Find("Viewport").Find("Content");
             questItemDict = new Dictionary<int, UI_QuestItem>();
+            QuestManager.Instance.loadQuest();
         }
 
         public override void OnShow(object obj)
         {
-            QuestManager.parseJson(missionList.text);
-            List<Quest> activeQuestList = QuestManager.getActiveQuestList();
-            
-            
+            this.RegisterEvent<QuestUpdateEvent>(questUpdate);
+            List<Quest> activeQuestList = QuestManager.Instance.getQuestListExceptHide();
+
             foreach (Quest quest in activeQuestList)
             {
                 UI_QuestItem questItem = getQuestItem(quest);
+                questItem.OnShow(quest);
                 questItem.gameObject.SetActive(true);
             }
         }
@@ -68,11 +85,40 @@ namespace XGame
             {
                 return questItemDict[quest.questId];
             }
+
             UI_QuestItem questItem = Instantiate(UI_QuestItemPrefab, contentTransform).GetComponent<UI_QuestItem>();
             questItem.OnInit();
-            questItem.OnShow(quest);
             questItemDict.Add(quest.questId, questItem);
             return questItem;
+        }
+
+        /// <summary>
+        /// 任务更新时，调用此方法，更新任务项UI
+        /// </summary>
+        /// <param name="questUpdateEvent"></param>
+        private void questUpdate(QuestUpdateEvent questUpdateEvent)
+        {
+            Quest quest = questUpdateEvent.quest;
+            UI_QuestItem questItem = getQuestItem(quest);
+            questItem.OnShow(quest);
+            questItem.gameObject.SetActive(true);
+        }
+
+        /// <summary>
+        /// 退出任务栏
+        /// </summary>
+        private void onClickExit()
+        {
+            XGame.MainController.HideUI<UI_QuestBar>();
+        }
+
+        /// <summary>
+        /// 测试专用，用于测试任务更新
+        /// </summary>
+        private void onClickTest()
+        {
+            QuestManager.Instance.updateQuestCondition(QuestConditionTypeEnum.CAPTURE,
+                QuestConditionObjectEnum.WOOD, 1);
         }
     }
 }

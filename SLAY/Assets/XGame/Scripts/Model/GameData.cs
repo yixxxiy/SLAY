@@ -25,6 +25,11 @@ namespace XGame
 
         public bool ISuODA;
 
+        /**
+         * 任务字典
+         */
+        public Dictionary<int, Quest> QuestDict;
+
         public List<PALU> PaLuList; 
       
     }

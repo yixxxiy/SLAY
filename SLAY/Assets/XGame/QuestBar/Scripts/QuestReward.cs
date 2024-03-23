@@ -2,6 +2,12 @@
 
 namespace XGame
 {
+    public enum QuestRewardObjectEnum
+    {
+        APPLE = 1,
+        
+        EXP = 2
+    }
     /**
      * 任务奖励类
      */
@@ -11,23 +17,11 @@ namespace XGame
         /**
          * 任务奖励物品类型
          */
-        private byte rewardType;
+        public byte rewardObject;
 
         /**
          * 任务奖励数量
          */
-        private int rewardNum;
-
-        public byte RewardType
-        {
-            get => rewardType;
-            set => rewardType = value;
-        }
-
-        public int RewardNum
-        {
-            get => rewardNum;
-            set => rewardNum = value;
-        }
+        public int rewardNum;
     }
 }

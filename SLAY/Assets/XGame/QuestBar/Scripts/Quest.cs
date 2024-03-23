@@ -25,7 +25,12 @@ namespace XGame
         /**
          * 完成状态
          */
-        FINISHED = 2
+        FINISHED = 2,
+        
+        /**
+         * 已提交状态
+         */
+        SUBMITED = 3
     }
 
     public enum QuestTypeEnum : byte
@@ -58,6 +63,11 @@ namespace XGame
          * 任务类型，详情见QuestTypeEnum
          */
         public byte questType;
+
+        /**
+         * 任务激活等级，仅当玩家等级达到特定等级才可以激活
+         */
+        public int activeLevel;
 
         /**
          * 前置任务列表字符串，仅用于解析

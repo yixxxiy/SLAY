@@ -177,6 +177,25 @@ namespace XGame
         {
             return ShowUIView(typeof(T), msg, showCallBack, delay) as T;
         }
+        
+        
+        /// <summary>
+        /// 用于检测type类型的UI是否显示中，仅适用于单例对象
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public bool isShowing<T>()
+        {
+            string key = typeof(T).Name;
+            UIView uiView = null;
+            if (mUiViewDic.ContainsKey(key))
+            {
+                uiView = mUiViewDic[key];
+                return uiView.gameObject.activeSelf;
+            }
+            return false;
+        }
+        
         public UIView ShowUIView(System.Type type, object msg = null, System.Action showCallBack = null, bool delay = true)
         {
             UIView uiView = null;
