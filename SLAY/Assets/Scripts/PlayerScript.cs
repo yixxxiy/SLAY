@@ -49,16 +49,6 @@ public class PlayerScript : MonoSingleton<PlayerScript>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 左键点击
-        {
-            if (!UIManager.Instance.isShowing<UI_QuestBar>())
-            {
-                Debug.Log("试试看任务列表展示把");
-                XGame.MainController.ShowUI<UI_QuestBar>();
-            }
-            
-            
-        }
         HandleMoving();
         HandleHunger();
     }
