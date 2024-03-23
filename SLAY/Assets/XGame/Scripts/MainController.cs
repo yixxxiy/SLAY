@@ -181,7 +181,6 @@ namespace XGame
         {
             Init();
             ShowUI<UI_Permanent>();
-            HudController.Instance.Init();
         }
 
         void OnDestroy()
@@ -224,6 +223,10 @@ namespace XGame
             GameDataManager.Instance.LoadData();
             //TipsManager初始化
             TipsManager.Instance.Init();
+
+            HudController.Instance.Init();
+
+            PlayerScript.Instance.Init();
         }
 
         void InitLanguage()

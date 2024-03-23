@@ -35,7 +35,7 @@ public class HudController : MonoSingleton<HudController>
         XGame.MainController.HideUI<UI_AutoHide>();
     }
 
-     void OnDestroy()
+    void OnDestroy()
     {
         Clear();
     }

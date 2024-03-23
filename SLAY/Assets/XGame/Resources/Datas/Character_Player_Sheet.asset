@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79dcc90323241b42962db5e6b908314, type: 3}
+  m_Name: Character_Player_Sheet
+  m_EditorClassIdentifier: 
+  ExcelFileName: Character.xlsx
+  ExcelSheetName: Player
+  KeyFieldName: _Level
+  elements:
+  - _Level: 1
+    _Exp: 100
+    _Hp: 100
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 2
+    _Exp: 200
+    _Hp: 110
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 3
+    _Exp: 360
+    _Hp: 120
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 4
+    _Exp: 560
+    _Hp: 130
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 5
+    _Exp: 800
+    _Hp: 140
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 6
+    _Exp: 1050
+    _Hp: 150
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 7
+    _Exp: 1330
+    _Hp: 160
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 8
+    _Exp: 1630
+    _Hp: 170
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 9
+    _Exp: 1950
+    _Hp: 180
+    _Hunger: 100
+    _Speed: 1
+  - _Level: 10
+    _Exp: 2280
+    _Hp: 190
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 11
+    _Exp: 2625
+    _Hp: 200
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 12
+    _Exp: 3000
+    _Hp: 210
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 13
+    _Exp: 3350
+    _Hp: 220
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 14
+    _Exp: 3735
+    _Hp: 230
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 15
+    _Exp: 4125
+    _Hp: 240
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 16
+    _Exp: 4525
+    _Hp: 250
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 17
+    _Exp: 4900
+    _Hp: 260
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 18
+    _Exp: 5350
+    _Hp: 270
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 19
+    _Exp: 5775
+    _Hp: 280
+    _Hunger: 110
+    _Speed: 1
+  - _Level: 20
+    _Exp: 6200
+    _Hp: 290
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 21
+    _Exp: 6650
+    _Hp: 300
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 22
+    _Exp: 7010
+    _Hp: 310
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 23
+    _Exp: 4545
+    _Hp: 320
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 24
+    _Exp: 8000
+    _Hp: 330
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 25
+    _Exp: 8470
+    _Hp: 340
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 26
+    _Exp: 9000
+    _Hp: 350
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 27
+    _Exp: 9400
+    _Hp: 360
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 28
+    _Exp: 9900
+    _Hp: 370
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 29
+    _Exp: 10400
+    _Hp: 380
+    _Hunger: 120
+    _Speed: 1
+  - _Level: 30
+    _Exp: 1000000
+    _Hp: 390
+    _Hunger: 130
+    _Speed: 1
