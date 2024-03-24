@@ -74,9 +74,10 @@ namespace XGame
                 LoginDay = 1,
                 Gold = 0,
 
-
                 ISuODA = false,
             };
+            QuestManager.Instance.parseJson();
+            setQuestDict();
         }
 
         /// <summary>
@@ -138,6 +139,14 @@ namespace XGame
                     break;
 
             }
+        }
+
+       /// <summary>
+       /// 将读取到的任务赋给data
+       /// </summary>
+        public void setQuestDict()
+        {
+            Data.QuestDict = QuestManager.Instance.questDict;
         }
 
     }
