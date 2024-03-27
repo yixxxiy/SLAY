@@ -15,6 +15,7 @@ namespace XGame
                 return mLayer;
             }
         }
+
         //是否只能存在一个
         public virtual bool IsSingle
         {
@@ -57,7 +58,6 @@ namespace XGame
         //恢复展示
         public virtual void OnReShow() { }
 
-
         /// <summary>
         /// 关闭自己
         /// </summary>
@@ -80,6 +80,7 @@ namespace XGame
     public enum UILayers
     {
         BackgroundLayer = 0,
+        TempBgLayer = 1,
         DefaultLayer = 10,
         NormalLayer = 20,
         MainLayer = 30,

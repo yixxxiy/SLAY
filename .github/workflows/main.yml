@@ -1,0 +1,61 @@
+name: APK Build
+# on: [push, pull_request]
+on:
+  # 检测 “main” branch的pull request和push更新，并运行以下Jobs
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    name: Project Build
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout到当前的代码仓库
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # 启用Git-lfs支持
+          lfs: true
+
+      # 缓存上一次Build中的Library文件，可以加快build的速度
+      - uses: actions/cache@v3
+        with:
+          path: SLAY/Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+            
+      # 该部分为运行Unity测试的部分，暂不考虑。为以后预留的代码
+      # Test
+      # - name: Run tests
+      #   uses: game-ci/unity-test-runner@v4
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      #     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      #   with:
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # 清理服务器的空间
+      - uses: jlumbroso/free-disk-space@v1.3.1
+      
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          unityVersion: auto
+          projectPath: 'SLAY/'
+          allowDirtyBuild: true
+
+      # 将生成的build文件上次至Github的Artifacts部分
+      - uses: actions/upload-artifact@v4
+        with:
+          name: APK Package
+          path: build

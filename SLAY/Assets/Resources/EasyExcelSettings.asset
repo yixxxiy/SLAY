@@ -15,11 +15,11 @@ MonoBehaviour:
   nameRowIndex: 1
   typeRowIndex: 2
   dataStartIndex: 3
-  generatedAssetPath: Assets/Resources/EasyExcelGeneratedAsset/
-  generatedScriptPath: Assets/EasyExcel/Example/AutoGenCode/
+  generatedAssetPath: Assets/XGame/Resources/Datas/
+  generatedScriptPath: Assets/XGame/Scripts/AutoGenCode/
   sheetDataPostfix: _Sheet
-  rowDataPostfix: 
-  nameSpace: EasyExcelGenerated
+  rowDataPostfix: _Record
+  nameSpace: XGame
   useFileNameAsNameSpace: 0
   nameSpacePrefix: EasyExcel_
-  lang: 0
+  lang: 1

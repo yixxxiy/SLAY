@@ -28,22 +28,27 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: bd5745a1a15615e4dbae0b54cd523693, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - bb606b31f35adf34496faf95dc7bdc4b: 21300000
+    - 66e5fd86427f89147aa076c634ffe248: 21300000
+    - 2d51b28a05fe6c74999c32ceaed20cfa: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: bb606b31f35adf34496faf95dc7bdc4b, type: 3}
-  - {fileID: 21300000, guid: ab2464451a2e6ee4392fdcd4c0334ec8, type: 3}
   - {fileID: 21300000, guid: 66e5fd86427f89147aa076c634ffe248, type: 3}
-  - {fileID: 21300000, guid: eead7d9934d0a1e499c8753da986dd73, type: 3}
   - {fileID: 21300000, guid: 2d51b28a05fe6c74999c32ceaed20cfa, type: 3}
   m_PackedSpriteNamesToIndex:
   - ProgressBG
-  - Icon
   - loadbg
-  - title
   - Progress
+  m_RenderDataMap: {}
   m_Tag: Loading
   m_IsVariant: 0

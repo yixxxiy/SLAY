@@ -1,34 +1,51 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using XGame;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : MonoSingleton<PlayerScript>, IHealth, IExperience, IHunger
 {
     const float HUNGER_DECREASE_INTERVAL = 5f;
 
     public Storage inventory;
-    public Joystick joystick;
     public float speed = 3.0f;
-    public int health;
-    public int maxHealth = 100;
-    public int hunger;
-    public int maxHunger = 100;
-    public int exp = 0;
-    public int maxExp = 100;
+    public int health => Hp;
+    public int maxHealth => MaxHp;
 
-    private Vector3 targetPosition;
     private bool isMoving = false;
     private float hungerTimer = 0f;
+    MeleeAttack meleeAttack;
 
-    // Start is called before the first frame update
-    void Awake()
+    public void Init()
     {
         inventory = new Storage(40);
-        health = maxHealth;
-        hunger = maxHunger;
+
+        var initPlayerRecord = XGame.MainController.GetRecord<Player_Record>(1);
+        Level = initPlayerRecord.Level;
+        MaxExp = initPlayerRecord.Exp;
+        MaxHp = initPlayerRecord.Hp;
+        MaxHunger = initPlayerRecord.Hunger;
+        MaxLevel = XGame.MainController.GetRecords<Player_Record>().Count;
+
+        Hp = MaxHp;
+        Hunger = MaxHunger;
+
+        this.RegisterEvent<PlayerInteractEvent>(PlayerInteract);
+        meleeAttack = GetComponent<MeleeAttack>();
+    }
+
+    void PlayerInteract(PlayerInteractEvent e)
+    {
+        Debug.Log("got PlayerInteractEvent");
+        switch (e.type)
+        {
+            case InteractType.Attack:
+                meleeAttack.Use();
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -46,19 +63,28 @@ public class PlayerScript : MonoBehaviour
         hungerTimer -= (float)hungerDecreaseUnit * HUNGER_DECREASE_INTERVAL;
         int hungerDecrease = hungerDecreaseUnit * 10;
         Debug.Log(string.Format("player's hunger -{0}", hungerDecrease));
-        hunger -= hungerDecrease;
-        if (hunger < 0)
+        Hunger -= hungerDecrease;
+        if (Hunger < 0)
         {
-            hunger = 0;
+            Hunger = 0;
         }
+        EventCenterManager.Send<ShowHudEvent>();
+        EventCenterManager.Send(new HungerUpdatedEvent
+        {
+            min = 0,
+            max = MaxHunger,
+            value = Hunger
+        });
     }
 
     private void HandleMoving()
     {
+        var joystick = JoystickSingleton.instance;
+        if (joystick == null) return;
+
         var x = joystick.Horizontal;
         var y = joystick.Vertical;
         isMoving = new Vector2(x, y).magnitude >= 0.1f;
-
         if (isMoving)
         {
             float step = speed * Time.deltaTime;
@@ -102,5 +128,57 @@ public class PlayerScript : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        this.UnRegisterEvent<PlayerInteractEvent>();
+    }
+
+    public int Hp { get; protected set; }
+
+    public int MaxHp { get; protected set; }
+
+    public void Heal(int value)
+    {
+        Hp = Math.Clamp(Hp + value, 0, MaxHp);
+    }
+
+    public void Hurt(int value)
+    {
+        Hp = Math.Clamp(Hp - value, 0, MaxHp);
+    }
+
+    public int Exp { get; protected set; }
+
+    public int MaxExp { get; protected set; }
+
+    public int Level { get; protected set; }
+
+    public int MaxLevel { get; protected set; }
+
+
+    public void GainExp(int value)
+    {
+        // TODO
+    }
+
+    protected void LevelUp()
+    {
+        // TODO
+    }
+
+    public int Hunger { get; protected set; }
+
+    public int MaxHunger { get; protected set; }
+
+    public void HungerInc(int value)
+    {
+        Hunger = Math.Clamp(Hunger + value, 0, MaxHunger);
+    }
+
+    public void HungerDec(int value)
+    {
+        Hunger = Math.Clamp(Hunger - value, 0, MaxHunger);
     }
 }

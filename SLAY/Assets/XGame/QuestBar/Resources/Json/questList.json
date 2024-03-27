@@ -1,0 +1,40 @@
+{
+  "questList": [
+    {
+      "questId": "1000",
+      "questName": "获取木材",
+      "questDescription": "获取木材 * 10",
+      "questType": "0",
+      "preQuests": "",
+      "questRewardObjects": "0",
+      "questRewardNums": "100",
+      "questConditionObjects": "1",
+      "questConditionNums": "10",
+      "questConditionTypes": "0"
+    },
+    {
+      "questId": "1001",
+      "questName": "制作作业台",
+      "questDescription": "制作作业台 * 1",
+      "questType": "0",
+      "preQuests": "1000",
+      "questRewardObjects": "0",
+      "questRewardNums": "50",
+      "questConditionObjects": "1",
+      "questConditionNums": "2",
+      "questConditionTypes": "0"
+    },
+    {
+      "questId": "1002",
+      "questName": "制作熔炼炉",
+      "questDescription": "制作熔炼炉 * 1",
+      "questType": "0",
+      "preQuests": "1001",
+      "questRewardObjects": "0,100",
+      "questRewardNums": "50,2",
+      "questConditionObjects": "1",
+      "questConditionNums": "3",
+      "questConditionTypes": "0"
+    }
+  ]
+}
